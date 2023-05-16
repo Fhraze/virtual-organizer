@@ -1,6 +1,7 @@
 from os import system
 from keyboard import is_pressed
 from time import sleep
+from numpy import array
 
 # Terminal colors
 class colors:
@@ -20,7 +21,7 @@ class colors:
 select = 0
 menu = 0
 options = [["Esmerilhadeira", "Parafusadeira", "Furadeira"], [f"Makita({colors.GREEN}Verde{colors.END})", f"Dewalt({colors.YELLOW}Amarelo{colors.END})", f"Bosch({colors.BLUE}Azul{colors.END})"], [f"Adicionar({colors.GREEN}+{colors.END})", f"Remover({colors.RED}-{colors.END})"]]
-info = [f"{colors.RED}--{colors.END} Aperte ESC para fechar o programa", f"{colors.RED}<={colors.END} Aperte ESC para retornar ao menu anterior", f"{colors.RED}<={colors.END} Aperte ESC para retornar ao menu anterior", "[^] [v] Use as setas para navegar\n[Enter¬] Use Enter para selecionar"]
+info = [f"{colors.RED}X{colors.END} Aperte ESC para fechar o programa", f"{colors.RED}<={colors.END} Aperte ESC para retornar ao menu anterior", f"{colors.RED}<={colors.END} Aperte ESC para retornar ao menu anterior", "[^] [v] Use as setas para navegar\n[Enter¬] Use Enter para selecionar"]
 cursor = f"{colors.SELECTOR}> {colors.END}"
 delay = True
 
@@ -60,7 +61,6 @@ while True:
         else:
             select = len(options[menu]) - 1
         delay = True
-    
     elif is_pressed("down"):
         if select < len(options[menu]) - 1:
             select += 1
