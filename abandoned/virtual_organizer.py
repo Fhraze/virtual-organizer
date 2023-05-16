@@ -41,8 +41,13 @@ while True:
             brand = options[menu][select]
             menu += 1
         delay = True
-    elif is_pressed("esc") and menu > 0:
-        menu -= 1
+    elif is_pressed("esc"):
+        if menu > 0:
+            menu -= 1
+        else:
+            system('cls')
+            print("Virtual Organizer foi fechado.")
+            quit()
         delay = True
     elif is_pressed("up"):
         if select > 0:
@@ -69,31 +74,3 @@ while True:
         sleep(0.2)
     sleep(0.005)
     delay = False
-
-# máquinas de coloração: Verde, Amarela e Azul
-# marca Makita, Dewalt e Bosch
-# esmirilhadeira, parafusadeira, furadeira
-# prateleiras: 1 e 4,   2 e 5,   3 e 6
-
-# Funções
-# seleção de máquina
-# seleção de marca/cor
-# adicionar e remover
-# gráfico sempre visível
-
-# salva os dados em um arquivo
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
-#| |  | |  | |  | |  | |  | |
