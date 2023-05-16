@@ -2,6 +2,7 @@ from os import system
 from keyboard import is_pressed
 from time import sleep
 
+# Terminal colors
 class colors:
     MAGENTA = '\033[95m'
     BLUE = '\033[94m'
@@ -13,15 +14,16 @@ class colors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+# Main variables
 select = 0
 menu = 0
 options = [["Esmirilhadeira", "Parafusadeira", "Furadeira"], [f"{colors.GREEN}Makita(Verde){colors.END}", f"{colors.YELLOW}Dewalt(Amarelo){colors.END}", f"{colors.BLUE}Bosch(Azul){colors.END}"], [f"Adicionar({colors.GREEN}+{colors.END})", f"Remover({colors.PINK}-{colors.END})"]]
 cursor = f"{colors.PINK}> {colors.END}"
-delay = False
+delay = True
 
 # Selections
-tool = ""
-brand = ""
+tool = 0
+brand = 0
 
 def option(_select):
     for i in range(0, len(options[menu])):
@@ -31,13 +33,6 @@ def option(_select):
             print(f"{options[menu][i]}")
 
 while True:
-    system('cls')
-    print(f"  /      {colors.PINK}O{colors.END}      \\")
-    print(f" /    {colors.PINK}o{colors.END}          \\")
-    print(f"|          {colors.PINK}°{colors.END}      |")
-    print(f"|{colors.PINK}{colors.UNDERLINE}{colors.BOLD}Virtual Organizer{colors.END}|")
-    print("|_________________|\n")
-
     if is_pressed("enter") and menu < 2:
         if menu == 0:
             tool = options[menu][select]
@@ -63,9 +58,16 @@ while True:
             select = 0
         delay = True
 
-    option(select)
     if delay:
+        system('cls')
+        print(f"  /      {colors.PINK}O{colors.END}      \\")
+        print(f" /    {colors.PINK}o{colors.END}          \\")
+        print(f"|          {colors.PINK}°{colors.END}      |")
+        print(f"|{colors.PINK}{colors.UNDERLINE}{colors.BOLD}Virtual Organizer{colors.END}|")
+        print("|_________________|\n")
+        option(select)
         sleep(0.2)
+    sleep(0.005)
     delay = False
 
 # máquinas de coloração: Verde, Amarela e Azul
